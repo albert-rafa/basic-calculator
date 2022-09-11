@@ -86,7 +86,7 @@ body {
 
     box-shadow: 0 0 5px rgba(var(--rgb-darker-black), 0.5);
 }
-.keys button:hover {
+.keys button:hover, .keys button:focus {
     outline: 1px solid rgba(var(--rgb-white), 0.2);
 }
 
