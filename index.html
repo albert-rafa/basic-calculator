@@ -6,9 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Calculator</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 
+    <!-- PT Mono font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div class="container"> <!--Probably will delete this-->
+        <div class="calculator">
+            <div class="display"></div>
+            <div class="keys">
+                <button id="one" class="number">1</button>
+                <button id="two" class="number">2</button>
+                <button id="three" class="number">3</button>
+                <button id="four" class="number">4</button>
+                <button id="five" class="number">5</button>
+                <button id="six" class="number">6</button>
+                <button id="seven" class="number">7</button>
+                <button id="eight" class="number">8</button>
+                <button id="nine" class="number">9</button>
+                <button id="zero" class="number">0</button>
+
+                <button id="sum" class="operation">+</button>
+                <button id="minus" class="operation">-</button>
+                <button id="times" class="operation">*</button>
+                <button id="devide" class="operation">/</button>
+                <button id="equals" class="operation">=</button>
+
+                <button id="float">.</button>
+                <button id="clear">C</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Made by <address>Rafa Albert</address>
+    </footer>
 </body>
 </html>

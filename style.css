@@ -1,0 +1,101 @@
+:root {
+    --font-calculator: 'PT Mono', monospace;
+    --font-secondary: Arial, Helvetica, sans-serif;
+
+    --color-orange: rgb(238, 132, 52);
+    --color-black: rgb(39, 39, 39);
+    --rgb-darker-black: 21, 21, 21;
+    --rgb-white: 235, 245, 247;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    background-color: rgb(var(--rgb-white));
+}
+
+.calculator {
+    width: 30vw;
+    min-width: 200px;
+    overflow: hidden;
+
+    padding: 0.2em;
+
+    font-family: var(--font-calculator);
+    font-size: 2em;
+    color: white;
+
+    border-radius: 2px;
+    box-shadow: 2px 2px 8px rgba(var(--rgb-darker-black), 0.5);
+
+    background-color: var(--color-black);
+}
+
+.display {
+    height: 3em;
+    margin-bottom: 0.5em;
+
+    border-radius: 2px;
+
+    background-color: var(--color-orange);
+}
+
+.keys {
+    display: grid;
+    gap: 0.2em;
+    grid-template-areas: 
+        "clear clear devide times"
+        "seven eight nine minus"
+        "four five six sum"
+        "one two three sum"
+        "float zero equals equals";
+}
+#one {grid-area: one;} #two {grid-area: two;} #three {grid-area: three;} #four {grid-area: four;} #five {grid-area: five;}
+#six {grid-area: six;} #seven {grid-area: seven;} #eight {grid-area: eight;} #nine {grid-area: nine;} #zero {grid-area: zero;}
+#sum {grid-area: sum;} #minus {grid-area: minus;} #times {grid-area: times;} #devide {grid-area: devide;}
+#float {grid-area: float;} #clear {grid-area: clear;}
+#equals {
+    grid-area: equals;
+
+    background-color: var(--color-orange);
+}
+.keys button {
+    padding: 10px;
+    font-size: inherit;
+    color: white;
+
+    border-radius: 2px;
+
+    box-shadow: 0 0 5px rgba(var(--rgb-darker-black), 0.5);
+}
+.keys button:hover {
+    outline: 1px solid rgba(var(--rgb-white), 0.2);
+}
+
+footer {
+    font-family: var(--font-secondary);
+    font-size: 0.7em;
+}
+
+address {
+    display: inline;
+    font-style: normal;
+}
