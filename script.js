@@ -70,6 +70,11 @@ document.querySelector('#float').addEventListener('click', () => {
         updateDisplay()
     }
 })
+document.querySelector('#clear').addEventListener('click', () => {
+    res = ''
+    nDigits = 0
+    input.innerText = ''
+})
 
 function updateDisplay() {
     nDigits++
