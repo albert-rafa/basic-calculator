@@ -1,88 +1,182 @@
-var res = '';
+var display = '';
 var nDigits = 0;
 const maxDigits = 13;
+var answer = '';
+
+const operationReg = new RegExp('\d*[-+*\/]\d*')
 
 const input = document.querySelector('.input');
 
+// NUMBERS ------------------------------------------------------------
 document.querySelector('#zero').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '0'
+        display += '0'
         updateDisplay()
     }
 })
 document.querySelector('#one').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '1'
+        display += '1'
         updateDisplay()
     }
 })
 document.querySelector('#two').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '2'
+        display += '2'
         updateDisplay()
     }
 })
 document.querySelector('#three').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '3'
+        display += '3'
         updateDisplay()
     }
 })
 document.querySelector('#four').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '4'
+        display += '4'
         updateDisplay()
     }
 })
 document.querySelector('#five').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '5'
+        display += '5'
         updateDisplay()
     }
 })
 document.querySelector('#six').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '6'
+        display += '6'
         updateDisplay()
     }
 })
 document.querySelector('#seven').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '7'
+        display += '7'
         updateDisplay()
     }
 })
 document.querySelector('#eight').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '8'
+        display += '8'
         updateDisplay()
     }
 })
 document.querySelector('#nine').addEventListener('click', () => {
     if (nDigits < maxDigits) {
-        res += '9'
+        display += '9'
         updateDisplay()
     }
 })
 document.querySelector('#float').addEventListener('click', () => {
-    if (( nDigits < maxDigits ) && ( !isFloat(res) )) {
-        res += '.'
+    if (( nDigits < maxDigits ) && ( !isFloat(display) )) {
+        display += '.'
         updateDisplay()
     }
 })
-document.querySelector('#clear').addEventListener('click', () => {
-    res = ''
-    nDigits = 0
-    input.innerText = ''
+// --------------------------------------------------------------------
+
+// OPERATIONS ----------------------------------------------------------
+document.querySelector('#sum').addEventListener('click', () => {
+    if (isEquation(answer)) {
+        answer += display
+        answer = calculation().toString() + '+'
+        clearDisplay()
+    } else {
+        answer = display + '+'
+        clearDisplay()
+    }
+
+    console.log(answer)
 })
+document.querySelector('#minus').addEventListener('click', () => {
+    if (isEquation(answer)) {
+        answer += display
+        answer = calculation().toString() + '-'
+        clearDisplay()
+    } else {
+        answer = display + '-'
+        clearDisplay()
+    }
+
+    console.log(answer)
+})
+document.querySelector('#times').addEventListener('click', () => {
+    if (isEquation(answer)) {
+        answer += display
+        answer = calculation().toString() + '*'
+        clearDisplay()
+    } else {
+        answer = display + '*'
+        clearDisplay()
+    }
+
+    console.log(answer)
+})
+document.querySelector('#devide').addEventListener('click', () => {
+    if (isEquation(answer)) {
+        answer += display
+        answer = calculation().toString() + '/'
+        clearDisplay()
+    } else {
+        answer = display + '/'
+        clearDisplay()
+    }
+
+    console.log(answer)
+})
+
+document.querySelector('#equals').addEventListener('click', () => {
+    if (isEquation(answer)) {
+        answer += display
+        answer = calculation().toString()
+        input.innerText = answer
+        display = answer
+    }
+
+    console.log(answer)
+})
+
+document.querySelector('#clear').addEventListener('click', () => {
+    clearDisplay()
+    answer = ''
+})
+// -----------------------------------------------------------------------------
 
 function updateDisplay() {
     nDigits++
-    input.innerText = res
+    input.innerText = display
+}
+function clearDisplay() {
+    display = ''
+    nDigits = 0
+    input.innerText = ''
 }
 
 function isFloat(str) {
     const reg = new RegExp('[.]', 'g')
     if (str.match(reg)) { return true }
     return false
+}
+
+function isEquation(str) {
+    if (str.match(operationReg)) { return true }
+    return false
+}
+
+function calculation() {
+    const numbers = answer.split(operationReg)
+
+    if(answer.includes('+')) {
+        return ((parseFloat(numbers[0])) + (parseFloat(numbers[1])))
+    }
+    if(answer.includes('-')) {
+        return ((parseFloat(numbers[0])) - (parseFloat(numbers[1])))
+    }
+    if(answer.includes('*')) {
+        return ((parseFloat(numbers[0])) * (parseFloat(numbers[1])))
+    }
+    if(answer.includes('/')) {
+        return ((parseFloat(numbers[0])) / (parseFloat(numbers[1])))
+    }
 }
