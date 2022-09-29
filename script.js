@@ -17,54 +17,20 @@ numbers.forEach(number => {
     })
 })
 
-// OPERATIONS ----------------------------------------------------------
-document.querySelector('#sum').addEventListener('click', () => {
-    if (isEquation(answer)) {
-        answer += display
-        answer = calculation().toString() + '+'
-        clearDisplay()
-    } else {
-        answer = display + '+'
-        clearDisplay()
-    }
+const operators = document.querySelectorAll('.operation')
+operators.forEach(operator => {
+    operator.addEventListener('click', () => {
+        if (isEquation(answer)) {
+            answer += display
+            answer = calculation().toString() + operator.innerText
+            clearDisplay()
+        } else {
+            answer = display + operator.innerText
+            clearDisplay()
+        }
 
-    console.log(answer)
-})
-document.querySelector('#minus').addEventListener('click', () => {
-    if (isEquation(answer)) {
-        answer += display
-        answer = calculation().toString() + '-'
-        clearDisplay()
-    } else {
-        answer = display + '-'
-        clearDisplay()
-    }
-
-    console.log(answer)
-})
-document.querySelector('#times').addEventListener('click', () => {
-    if (isEquation(answer)) {
-        answer += display
-        answer = calculation().toString() + '*'
-        clearDisplay()
-    } else {
-        answer = display + '*'
-        clearDisplay()
-    }
-
-    console.log(answer)
-})
-document.querySelector('#devide').addEventListener('click', () => {
-    if (isEquation(answer)) {
-        answer += display
-        answer = calculation().toString() + '/'
-        clearDisplay()
-    } else {
-        answer = display + '/'
-        clearDisplay()
-    }
-
-    console.log(answer)
+        console.log(answer)
+    })
 })
 
 document.querySelector('#equals').addEventListener('click', () => {
