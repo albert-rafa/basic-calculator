@@ -1,6 +1,4 @@
 var display = '';
-var nDigits = 0;
-const maxDigits = 13;
 var answer = '';
 
 const operationReg = new RegExp('\d*[-+*\/]\d*')
@@ -10,11 +8,9 @@ const input = document.querySelector('.input');
 const numbers = document.querySelectorAll('.number')
 numbers.forEach(number => {
     number.addEventListener('click', () => {
-        if (nDigits < maxDigits) {
-            if (isEquation(answer)) {clearDisplay()}
-            display += number.innerText
-            updateDisplay()
-        }
+        if (isEquation(answer)) {clearDisplay()}
+        display += number.innerText
+        updateDisplay()
     })
 })
 
@@ -30,8 +26,6 @@ operators.forEach(operator => {
             answer = display + operator.innerText
             clearDisplay()
         }
-
-        console.log(answer)
     })
 })
 
@@ -52,12 +46,10 @@ document.querySelector('#clear').addEventListener('click', () => {
 })
 
 function updateDisplay() {
-    nDigits++
     input.innerText = display
 }
 function clearDisplay() {
     display = ''
-    nDigits = 0
     input.innerText = ''
 }
 

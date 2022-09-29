@@ -60,6 +60,8 @@ body {
     border-radius: 2px;
 
     background-color: var(--color-orange);
+
+    overflow: hidden;
 }
 
 .input {
@@ -68,7 +70,10 @@ body {
 
     color: white;
     font-size: 1.2em;
-    text-align: end;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
 }
 
 .keys {
