@@ -11,6 +11,7 @@ const numbers = document.querySelectorAll('.number')
 numbers.forEach(number => {
     number.addEventListener('click', () => {
         if (nDigits < maxDigits) {
+            if (isEquation(answer)) {clearDisplay()}
             display += number.innerText
             updateDisplay()
         }
@@ -22,8 +23,9 @@ operators.forEach(operator => {
     operator.addEventListener('click', () => {
         if (isEquation(answer)) {
             answer += display
-            answer = calculation().toString() + operator.innerText
-            clearDisplay()
+            answer = calculation().toString()
+            input.innerText = answer
+            answer += operator.innerText
         } else {
             answer = display + operator.innerText
             clearDisplay()
@@ -48,7 +50,6 @@ document.querySelector('#clear').addEventListener('click', () => {
     clearDisplay()
     answer = ''
 })
-// -----------------------------------------------------------------------------
 
 function updateDisplay() {
     nDigits++
