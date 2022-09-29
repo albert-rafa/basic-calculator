@@ -7,74 +7,15 @@ const operationReg = new RegExp('\d*[-+*\/]\d*')
 
 const input = document.querySelector('.input');
 
-// NUMBERS ------------------------------------------------------------
-document.querySelector('#zero').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '0'
-        updateDisplay()
-    }
+const numbers = document.querySelectorAll('.number')
+numbers.forEach(number => {
+    number.addEventListener('click', () => {
+        if (nDigits < maxDigits) {
+            display += number.innerText
+            updateDisplay()
+        }
+    })
 })
-document.querySelector('#one').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '1'
-        updateDisplay()
-    }
-})
-document.querySelector('#two').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '2'
-        updateDisplay()
-    }
-})
-document.querySelector('#three').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '3'
-        updateDisplay()
-    }
-})
-document.querySelector('#four').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '4'
-        updateDisplay()
-    }
-})
-document.querySelector('#five').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '5'
-        updateDisplay()
-    }
-})
-document.querySelector('#six').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '6'
-        updateDisplay()
-    }
-})
-document.querySelector('#seven').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '7'
-        updateDisplay()
-    }
-})
-document.querySelector('#eight').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '8'
-        updateDisplay()
-    }
-})
-document.querySelector('#nine').addEventListener('click', () => {
-    if (nDigits < maxDigits) {
-        display += '9'
-        updateDisplay()
-    }
-})
-document.querySelector('#float').addEventListener('click', () => {
-    if (( nDigits < maxDigits ) && ( !isFloat(display) )) {
-        display += '.'
-        updateDisplay()
-    }
-})
-// --------------------------------------------------------------------
 
 // OPERATIONS ----------------------------------------------------------
 document.querySelector('#sum').addEventListener('click', () => {
