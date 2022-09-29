@@ -14,6 +14,13 @@ numbers.forEach(number => {
     })
 })
 
+document.querySelector('#float').addEventListener('click', () => {
+    if (!isFloat(display)) {
+        display += '.'
+        updateDisplay()
+    }
+})
+
 const operators = document.querySelectorAll('.operation')
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
