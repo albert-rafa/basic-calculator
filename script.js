@@ -2,13 +2,18 @@ var display = '';
 var answer = '';
 
 const operationReg = new RegExp('\d*[-+*\/]\d*')
+var operationFlag = true
 
 const input = document.querySelector('.input');
 
 const numbers = document.querySelectorAll('.number')
 numbers.forEach(number => {
     number.addEventListener('click', () => {
-        if (isEquation(answer)) {clearDisplay()}
+        // BUG HERE
+        if (operationFlag && isEquation(answer)) {
+            operationFlag = false
+            clearDisplay()
+        }
         display += number.innerText
         updateDisplay()
     })
@@ -24,6 +29,7 @@ document.querySelector('#float').addEventListener('click', () => {
 const operators = document.querySelectorAll('.operation')
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
+        operationFlag = true
         if (isEquation(answer)) {
             answer += display
             answer = calculation().toString()
